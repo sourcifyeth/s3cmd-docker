@@ -26,12 +26,12 @@ You can find an automated build of this container on the Docker Hub: https://hub
     LOCAL_FILE=/tmp/database
 
     docker run \
-    --env aws_key=${AWS_KEY} \
-    --env aws_secret=${AWS_SECRET} \
-    --env cmd=sync-local-to-s3 \
-    --env DEST_S3=${BUCKET}  \
-    -v ${LOCAL_FILE}:/opt/src \
-    garland/docker-s3cmd
+      --env aws_key=${AWS_KEY} \
+      --env aws_secret=${AWS_SECRET} \
+      --env cmd=sync-local-to-s3 \
+      --env DEST_S3=${BUCKET}  \
+      -v ${LOCAL_FILE}:/opt/src \
+      hochzehn/s3cmd
 
 * Change `LOCAL_FILE` to file/folder you want to upload to S3
 
@@ -43,12 +43,12 @@ You can find an automated build of this container on the Docker Hub: https://hub
     LOCAL_FILE=/tmp
 
     docker run \
-    --env aws_key=${AWS_KEY} \
-    --env aws_secret=${AWS_SECRET} \
-    --env cmd=sync-s3-to-local \
-    --env SRC_S3=${BUCKET} \
-    -v ${LOCAL_FILE}:/opt/dest \
-    garland/docker-s3cmd
+      --env aws_key=${AWS_KEY} \
+      --env aws_secret=${AWS_SECRET} \
+      --env cmd=sync-s3-to-local \
+      --env SRC_S3=${BUCKET} \
+      -v ${LOCAL_FILE}:/opt/dest \
+      hochzehn/s3cmd
 
 * Change `LOCAL_FILE` to the file/folder where you want to download the files from S3 to the local computer
 
@@ -58,11 +58,11 @@ You can find an automated build of this container on the Docker Hub: https://hub
     AWS_SECRET=<YOUR AWS SECRET>
 
     docker run -it \
-    --env aws_key=${AWS_KEY} \
-    --env aws_secret=${AWS_SECRET} \
-    --env cmd=interactive \
-    -v /:/opt/dest \
-    garland/docker-s3cmd /bin/sh
+      --env aws_key=${AWS_KEY} \
+      --env aws_secret=${AWS_SECRET} \
+      --env cmd=interactive \
+      -v /:/opt/dest \
+      hochzehn/s3cmd /bin/sh
 
 Then execute the `main.sh` script to setup the s3cmd config file
 
