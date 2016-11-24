@@ -1,4 +1,4 @@
-docker-s3cmd
+s3cmd-docker
 ============
 [![GitHub forks](https://img.shields.io/github/forks/sekka1/docker-s3cmd.svg)](https://github.com/sekka1/docker-s3cmd/network)
 [![GitHub stars](https://img.shields.io/github/stars/sekka1/docker-s3cmd.svg)](https://github.com/sekka1/docker-s3cmd/stargazers)
@@ -8,13 +8,13 @@ docker-s3cmd
 [![Docker Stars](https://img.shields.io/docker/stars/garland/docker-s3cmd.svg)](https://hub.docker.com/r/garland/docker-s3cmd/)
 
 
-s3cmd in a Docker container.  This is useful if you are already using Docker.
+s3cmd in a Docker container. This is useful if you are already using Docker.
 You can simply pull this container to that Docker server and move things between the local box and S3 by just running
 a container.
 
-Using [Alpine linux](https://hub.docker.com/_/alpine/).  This image is 31MB.
+Using [Alpine linux](https://hub.docker.com/_/alpine/). This image is ~30MB.
 
-You can find an automated build of this container on the Docker Hub: https://hub.docker.com/r/garland/docker-s3cmd/
+You can find an automated build of this container on the Docker Hub: https://hub.docker.com/r/hochzehn/s3cmd/
 
 # Usage Instruction
 
