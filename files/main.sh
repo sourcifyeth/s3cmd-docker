@@ -1,4 +1,4 @@
-#!/bin/sh -xe
+#!/bin/sh -e
 
 #
 # main entry point to run s3cmd
