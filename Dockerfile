@@ -7,7 +7,7 @@ RUN apk add --no-cache python py-pip py-setuptools git ca-certificates \
  && ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd \
  && apk del py-pip py-setuptools git
 
-ADD ./files/s3cfg /root/.s3cfg
+ADD ./files/.s3cfg /root/.s3cfg
 ADD ./files/main.sh /opt/main.sh
 
 # Main entrypoint script and directories for s3cmd
