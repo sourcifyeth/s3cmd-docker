@@ -1,9 +1,8 @@
 FROM alpine:3.3
 
-RUN apk add --no-cache python py-pip py-setuptools git ca-certificates
-RUN pip install python-dateutil python-magic
-
-RUN git clone --depth=1 https://github.com/s3tools/s3cmd.git /opt/s3cmd \
+RUN apk add --no-cache python py-pip py-setuptools git ca-certificates \
+ && pip install python-dateutil python-magic \
+ && git clone --depth=1 https://github.com/s3tools/s3cmd.git /opt/s3cmd \
  && rm -rf /opt/s3cmd/.git \
  && ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
 
