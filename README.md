@@ -20,7 +20,7 @@ This repo is based on [sekka1/docker-s3cmd](https://github.com/sekka1/docker-s3c
 You can simply pull this container to that Docker server and move things between the local box and S3 by just running
 a container.
 
-Using [Alpine linux](https://hub.docker.com/_/alpine/). This image is ~30MB.
+Using [Alpine linux](https://hub.docker.com/_/alpine/). This image is ~15MB.
 
 You can find an automated build of this container on the Docker Hub: [hochzehn/s3cmd](https://hub.docker.com/r/hochzehn/s3cmd/)
 
