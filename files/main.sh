@@ -19,11 +19,6 @@ if [ -z "${aws_secret}" ]; then
     exit 1
 fi
 
-if [ -z "${cmd}" ]; then
-    echo "ERROR: The environment variable cmd is not set."
-    exit 1
-fi
-
 #
 # Set user provided key and secret in .s3cfg file
 #
@@ -39,15 +34,14 @@ if [ "${s3_host_base}" != "" ]; then
   echo "host_base = ${s3_host_base}" >> "$S3CMD_CONFIG"
 fi
 
-# Check if we want to run in interactive mode or not
-if [ "${cmd}" != "interactive" ]; then
-
+# Check whether to run a pre-defined command
+if [ -n "${cmd}" ]; then
   #
   # sync-s3-to-local - copy from s3 to local
   #
   if [ "${cmd}" = "sync-s3-to-local" ]; then
-      echo ${src-s3}
-      ${S3CMD_PATH}  sync ${SRC_S3} /opt/dest/
+      echo ${SRC_S3}
+      ${S3CMD_PATH} sync ${SRC_S3} /opt/dest/
   fi
 
   #
@@ -56,6 +50,8 @@ if [ "${cmd}" != "interactive" ]; then
   if [ "${cmd}" = "sync-local-to-s3" ]; then
       ${S3CMD_PATH} sync /opt/src/ ${DEST_S3}
   fi
+else
+  ${S3CMD_PATH} $*
 fi
 
 #

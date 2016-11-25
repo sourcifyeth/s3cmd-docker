@@ -25,7 +25,7 @@ You can find an automated build of this container on the Docker Hub: https://hub
     BUCKET=s3://garland.public.bucket/database2/
     LOCAL_FILE=/tmp/database
 
-    docker run \
+    docker run --rm \
       --env aws_key=${AWS_KEY} \
       --env aws_secret=${AWS_SECRET} \
       --env cmd=sync-local-to-s3 \
@@ -42,7 +42,7 @@ You can find an automated build of this container on the Docker Hub: https://hub
     BUCKET=s3://garland.public.bucket/database
     LOCAL_FILE=/tmp
 
-    docker run \
+    docker run --rm \
       --env aws_key=${AWS_KEY} \
       --env aws_secret=${AWS_SECRET} \
       --env cmd=sync-s3-to-local \
@@ -52,22 +52,15 @@ You can find an automated build of this container on the Docker Hub: https://hub
 
 * Change `LOCAL_FILE` to the file/folder where you want to download the files from S3 to the local computer
 
-## Run interactively with s3cmd
+## Run any `s3cmd` command
 
     AWS_KEY=<YOUR AWS KEY>
     AWS_SECRET=<YOUR AWS SECRET>
 
-    docker run -it \
+    docker run -rm \
       --env aws_key=${AWS_KEY} \
       --env aws_secret=${AWS_SECRET} \
       --env cmd=interactive \
       -v /:/opt/dest \
-      hochzehn/s3cmd /bin/sh
-
-Then execute the `main.sh` script to setup the s3cmd config file
-
-    /opt/main.sh
-
-Now you can run `s3cmd` commands
-
-    s3cmd ls /
+      hochzehn/s3cmd \
+      ls /

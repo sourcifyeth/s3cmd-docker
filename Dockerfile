@@ -20,4 +20,5 @@ RUN mkdir /opt/src
 RUN mkdir /opt/dest
 
 WORKDIR /
-CMD ["/opt/main.sh"]
+ENTRYPOINT ["/opt/main.sh"]
+CMD [""]
