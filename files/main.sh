@@ -41,14 +41,14 @@ if [ -n "${cmd}" ]; then
   #
   if [ "${cmd}" = "sync-s3-to-local" ]; then
       echo ${SRC_S3}
-      ${S3CMD_PATH} sync ${SRC_S3} /opt/dest/
+      ${S3CMD_PATH} sync $* ${SRC_S3} /opt/dest/
   fi
 
   #
   # sync-local-to-s3 - copy from local to s3
   #
   if [ "${cmd}" = "sync-local-to-s3" ]; then
-      ${S3CMD_PATH} sync /opt/src/ ${DEST_S3}
+      ${S3CMD_PATH} sync $* /opt/src/ ${DEST_S3}
   fi
 else
   ${S3CMD_PATH} $*

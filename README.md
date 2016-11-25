@@ -42,6 +42,7 @@ You can find an automated build of this container on the Docker Hub: [hochzehn/s
       hochzehn/s3cmd
 
 * Change `LOCAL_FILE` to file/folder you want to upload to S3
+* Append any options to pass to `s3cmd` at the end, e.g. `--delete-removed`: `... hochzehn/s3cmd --delete-removed`
 
 ## Copy from S3 to local:
 
@@ -58,7 +59,8 @@ You can find an automated build of this container on the Docker Hub: [hochzehn/s
       -v ${LOCAL_FILE}:/opt/dest \
       hochzehn/s3cmd
 
-* Change `LOCAL_FILE` to the file/folder where you want to download the files from S3 to the local computer
+* Change `LOCAL_FILE` to the file/folder to download the files from S3 to
+* Append any options to pass to `s3cmd` at the end, e.g. `--delete-removed`: `... hochzehn/s3cmd --delete-removed`
 
 ## Run any `s3cmd` command
 
