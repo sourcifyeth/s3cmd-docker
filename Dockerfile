@@ -1,7 +1,6 @@
 FROM alpine:3.3
 
-RUN apk update
-RUN apk add python py-pip py-setuptools git ca-certificates
+RUN apk add --no-cache python py-pip py-setuptools git ca-certificates
 RUN pip install python-dateutil python-magic
 
 RUN git clone https://github.com/s3tools/s3cmd.git /opt/s3cmd
