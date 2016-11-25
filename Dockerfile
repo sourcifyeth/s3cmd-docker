@@ -7,18 +7,12 @@ RUN apk add --no-cache python py-pip py-setuptools git ca-certificates \
  && ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd \
  && apk del py-pip py-setuptools git
 
-WORKDIR /opt
-
 ADD ./files/s3cfg /root/.s3cfg
 ADD ./files/main.sh /opt/main.sh
 
-# Main entrypoint script
-RUN chmod u+x /opt/main.sh
+# Main entrypoint script and directories for s3cmd
+RUN chmod u+x /opt/main.sh \
+ && mkdir /opt/src /opt/dest
 
-# Folders for s3cmd optionations
-RUN mkdir /opt/src
-RUN mkdir /opt/dest
-
-WORKDIR /
 ENTRYPOINT ["/opt/main.sh"]
 CMD [""]
