@@ -9,7 +9,7 @@ RUN ln -s /opt/s3cmd/s3cmd /usr/bin/s3cmd
 
 WORKDIR /opt
 
-ADD ./files/s3cfg /opt/.s3cfg
+ADD ./files/s3cfg /root/.s3cfg
 ADD ./files/main.sh /opt/main.sh
 
 # Main entrypoint script
