@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.4
 
 RUN apk add --no-cache python py-pip py-setuptools git ca-certificates \
  && pip install --no-cache-dir python-dateutil python-magic \
